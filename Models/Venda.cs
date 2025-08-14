@@ -1,12 +1,19 @@
-﻿namespace ApiProdutos.Models
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ApiProdutos.Models
 {
+    [Table("Vendas")]
     public class Venda
     {
-        public int Id { get; set; } // ID da venda
-        public DateTime DataVenda { get; set; } // Data da venda
-        public int ProdutoId { get; set; } // ID do produto
-        public string Nome {  get; set; }
-        public int Quantidade { get; set; } // Quantidade vendida
-        public decimal ValorVendido { get; set; } // Valor total da venda
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public DateTime DataVenda { get; set; }
+        public int ProdutoId { get; set; }
+        public string Nome { get; set; }
+        public int Quantidade { get; set; }
+        public decimal ValorVendido { get; set; }
     }
 }
